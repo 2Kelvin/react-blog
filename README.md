@@ -1,7 +1,3 @@
 # reactJS-blog
 
-To run:
-
--npm install
-
--npm start 
+Creating a react blog and leaarning all about react-router
