@@ -1,3 +1,3 @@
 # reactJS-blog
 
-Creating a react blog and leaarning all about react-router
+Creating a react blog and learning all about react-router
