@@ -12,7 +12,7 @@ import { useState, useEffect } from "react";
 function App() {
   return (
     <div className="App"> {/* 'Header, Navbar & Footer' are constant in all pages */}
-      <Header />
+      <Header title="React JS Blog"/>
       <Navbar />
       <Switch>
         <Route exact path="/" >
