@@ -11,14 +11,26 @@ import { useState, useEffect } from "react";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App"> {/* 'Header, Navbar & Footer' are constant in all pages */}
       <Header />
       <Navbar />
-      <Home />
-      <NewPost />
-      <PostsPage />
-      <About />
-      <Missing />
+      <Switch>
+        <Route exact path="/" >
+          <Home />
+        </Route>
+        
+        <Route exact path="/post">
+          <NewPost />
+        </Route>
+
+        <Route path="/post/:id">
+          <PostsPage />
+        </Route>
+
+        <Route path="/about" component={About} />
+        
+        <Route path="*" component={Missing}/>
+      </Switch>
       <Footer/>
     </div>
   );
