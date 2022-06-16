@@ -10,10 +10,12 @@ import { Route, Switch, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function App() {
+  const [search, setSearch] = useState("");
+
   return (
     <div className="App"> {/* 'Header, Navbar & Footer' are constant in all pages */}
       <Header title="React JS Blog"/>
-      <Navbar />
+      <Navbar search={search} setSearch={setSearch}/>
       <Switch>
         <Route exact path="/" >
           <Home />

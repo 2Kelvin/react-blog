@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 * {
   margin: 0;
@@ -12,7 +12,7 @@ html {
 
 body {
   min-height: 100vh;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
@@ -76,7 +76,7 @@ body {
 }
 
 .searchForm input[type="text"] {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Poppins', sans-serif;
   width: 100%;
   min-height: 48px;
   font-size: 1rem;
@@ -176,7 +176,7 @@ body {
 
 .newPostForm input[type='text'], 
 .newPostForm textarea {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Poppins', sans-serif;
   width: 100%;
   min-height: 48px;
   font-size: 1rem;
