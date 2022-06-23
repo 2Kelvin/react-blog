@@ -17,6 +17,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   display: flex;
   background-color: #efefef;
+  font-size: 0.8rem;
 }
 
 #root {
@@ -28,7 +29,7 @@ body {
 
 .App {
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -48,11 +49,11 @@ body {
 }
 
 .Header h1 {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .Header svg {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .Footer {
