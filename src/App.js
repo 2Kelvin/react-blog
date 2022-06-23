@@ -2,6 +2,7 @@ import Header from "./Components/Header";
 import Navbar from "./Components/Navbar";
 import Home from "./Components/Home";
 import NewPost from "./Components/NewPost";
+import EditPost from "./Components/EditPost";
 import PostsPage from "./Components/PostsPage";
 import About from "./Components/About";
 import Missing from "./Components/Missing";
@@ -17,6 +18,8 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [postTitle, setPostTitle] = useState("");
   const [postBody, setPostBody] = useState("");
+  const [editTitle, setEditTitle] = useState("");
+  const [editBody, setEditBody] = useState("");
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -70,6 +73,25 @@ function App() {
     }
   };
 
+  const handleEdit = async (id) => {
+    const datetime = format(new Date(), "MMMM dd, yyyy pp"); 
+    const updatedPost = {
+      id,
+      title: editTitle,
+      datetime,
+      body: editBody
+    };
+    try {
+      const response = await api.put(`/posts/${id}`, updatedPost); //.put() edits entire post/data | .patch() edits only specific fields
+      setPosts(posts.map(post => post.id === id ? { ...response.data } : post)); //removing that old post & only adding the updated one/ post with the new info
+      setEditTitle("");
+      setEditBody("");
+      history.push("/");
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
+  };
+
   const handleDelete = async (id) => {
     try {
       await api.delete(`/posts/${id}`);
@@ -106,6 +128,17 @@ function App() {
             postBody={postBody}
             setPostBody={setPostBody}
             handleSubmit={handleSubmit}
+          />
+        </Route>
+
+        <Route path="/edit/:id">
+          <EditPost
+            posts={posts}
+            editTitle={editTitle}
+            setEditTitle={setEditTitle}
+            editBody={editBody}
+            setEditBody={setEditBody}
+            handleEdit={handleEdit}
           />
         </Route>
 

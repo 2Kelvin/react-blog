@@ -1,40 +1,28 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "My First Post",
-      "datetime": "July 01, 2022 11:17:36 AM",
-      "body": "I did this and that and that. What an mazing day it was indeed. "
+      "id": 7,
+      "title": "Axios",
+      "datetime": "June 23, 2022 3:02:31 PM",
+      "body": "An npm package used to fetch api data. I need to learn this ASAP!"
     },
     {
-      "id": 2,
-      "title": "My Second Post",
-      "datetime": "July 02, 2022 8:08:06 PM",
-      "body": "My week was good but there was this one crazy scenario that happened."
+      "id": 8,
+      "title": "Japan",
+      "datetime": "June 23, 2022 3:04:52 PM",
+      "body": "Japan is one of those countries I would like to visit when I get the opportunity."
     },
     {
-      "id": 3,
-      "title": "My Third Post",
-      "datetime": "July 03, 2022 06:42:22 AM",
-      "body": "Nature; the birds, the seals, the waves, the breeze all made the day so beautiful."
+      "id": 9,
+      "title": "Node JS or React Native?",
+      "datetime": "June 23, 2022 4:29:40 PM",
+      "body": "Am at a dilemma right now. As am finishing learning React, I know I'll solidify my knowledge through making tones of projects. However, as I do so, I would also like to be learning a new technology. Should I do Node (back-end) or React Native (mobile)? Hmmm..."
     },
     {
-      "id": 4,
-      "title": "My Fourth Post",
-      "datetime": "July 04, 2022 1:05:20 PM",
-      "body": "Clothes are an extension to who you are. They describe you to the brim."
-    },
-    {
-      "id": 5,
-      "title": "Menn",
-      "datetime": "June 23, 2022 2:45:43 PM",
-      "body": "Fjhgasdkjas"
-    },
-    {
-      "id": 6,
-      "title": "Test Post",
-      "datetime": "June 23, 2022 2:47:22 PM",
-      "body": "Just a test post."
+      "id": 10,
+      "title": "JavaScript",
+      "datetime": "June 23, 2022 3:10:29 PM",
+      "body": "I love JavaScript. It's such an amazing programming language. I'm probably going to become a MERN developer."
     }
   ]
 }
