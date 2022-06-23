@@ -9,6 +9,7 @@ import Footer from "./Components/Footer";
 import { Route, Switch, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
+import api from "./api/posts";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -16,6 +17,26 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [postTitle, setPostTitle] = useState("");
   const [postBody, setPostBody] = useState("");
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await api.get("/posts"); //unlike fetch, axios automatically sets the response data to JSON
+        setPosts(response.data); //axios also automatically catches errors when not in the '200' okay range
+      } catch (err) {
+        if (err.response) {
+          //if response is not in the 200 range
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+        } else {
+          console.log(`Error: ${err.message}`);
+        }
+      }
+    }
+
+    fetchPosts();
+   }, []);
 
   useEffect(() => {
     const filteredResults = posts.filter(post =>
@@ -27,9 +48,9 @@ function App() {
 
   const history = useHistory();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const id = posts.length ? posts[posts.length - 1].id++ : 1;
+    const id = posts.length ? posts[posts.length - 1].id + 1 : 1;
     const datetime = format(new Date(), "MMMM dd, yyyy pp"); 
     const newPost = {
       id,
@@ -37,17 +58,26 @@ function App() {
       datetime,
       body: postBody
     };
-    const allPosts = [...posts, newPost];
-    setPosts(allPosts);
-    setPostTitle("");
-    setPostBody("");
-    history.push("/");
+    try {
+      const response = await api.post("/posts", newPost);
+      const allPosts = [...posts, response.data];
+      setPosts(allPosts);
+      setPostTitle("");
+      setPostBody("");
+      history.push("/");
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
   };
 
-  const handleDelete = (id) => {
-    const postsList = posts.filter(post => post.id !== id);
-    setPosts(postsList);
-    history.push("/");
+  const handleDelete = async (id) => {
+    try {
+      const postsList = posts.filter(post => post.id !== id);
+      setPosts(postsList);
+      history.push("/");
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
   };
 
   return (
