@@ -11,6 +11,7 @@ import { Route, Switch, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import api from "./api/posts";
+import useWindowSize from "./hooks/useWindowSize";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -20,6 +21,7 @@ function App() {
   const [postBody, setPostBody] = useState("");
   const [editTitle, setEditTitle] = useState("");
   const [editBody, setEditBody] = useState("");
+  const {width} = useWindowSize();
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -107,6 +109,7 @@ function App() {
     <div className="App"> {/* 'Header, Navbar & Footer' are constant in all pages */}
       <Header
         title="React JS Blog"
+        width={width}
       />
 
       <Navbar
