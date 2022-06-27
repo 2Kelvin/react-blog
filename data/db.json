@@ -21,7 +21,7 @@
     {
       "id": 10,
       "title": "JavaScript",
-      "datetime": "June 24, 2022 8:41:40 AM",
+      "datetime": "June 26, 2022 10:13:09 AM",
       "body": "I love JavaScript. It's such an amazing programming language. I'm probably going to become a MERN stack developer."
     },
     {
@@ -29,6 +29,12 @@
       "title": "Interviews",
       "datetime": "June 24, 2022 3:00:02 PM",
       "body": "Interviews, am I right? I'm going for one right now. And am done, met some old workmates. I hope we get the parts."
+    },
+    {
+      "id": 12,
+      "title": "useContext",
+      "datetime": "June 27, 2022 6:12:14 AM",
+      "body": "useContext cleans up your app from all the prop drilling into components in through App. It puts all the \"data\"/ props into one file to be accessed throughout the application."
     }
   ]
 }

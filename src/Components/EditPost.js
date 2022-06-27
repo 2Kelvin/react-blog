@@ -1,7 +1,14 @@
-import { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useParams, Link, useHistory } from "react-router-dom";
+import { format } from "date-fns";
+import api from "../api/posts";
+import DataContext from "../context/DataContext";
 
-const EditPost = ({ posts, handleEdit, editTitle, setEditTitle, editBody, setEditBody }) => {
+const EditPost = () => {
+    const [editTitle, setEditTitle] = useState("");
+    const [editBody, setEditBody] = useState("");
+    const { posts, setPosts } = useContext(DataContext);
+    const history = useHistory();
     const { id } = useParams();
     const post = posts.find(post => (post.id).toString() === id); 
 
@@ -10,7 +17,26 @@ const EditPost = ({ posts, handleEdit, editTitle, setEditTitle, editBody, setEdi
             setEditTitle(post.title);
             setEditBody(post.body);
         }
-    }, [post, setEditTitle, setEditBody])
+    }, [post, setEditTitle, setEditBody]);
+
+    const handleEdit = async (id) => {
+        const datetime = format(new Date(), "MMMM dd, yyyy pp"); 
+        const updatedPost = {
+          id,
+          title: editTitle,
+          datetime,
+          body: editBody
+        };
+        try {
+          const response = await api.put(`/posts/${id}`, updatedPost); //.put() edits entire post/data | .patch() edits only specific fields
+          setPosts(posts.map(post => post.id === id ? { ...response.data } : post)); //removing that old post & only adding the updated one/ post with the new info
+          setEditTitle("");
+          setEditBody("");
+          history.push("/");
+        } catch (err) {
+          console.log(`Error: ${err.message}`);
+        }
+    };
 
     return (
         <main className="NewPost">
