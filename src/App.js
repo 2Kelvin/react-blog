@@ -1,34 +1,29 @@
-import Header from "./Components/Header";
-import Navbar from "./Components/Navbar";
 import Home from "./Components/Home";
 import NewPost from "./Components/NewPost";
 import EditPost from "./Components/EditPost";
 import PostsPage from "./Components/PostsPage";
 import About from "./Components/About";
 import Missing from "./Components/Missing";
-import Footer from "./Components/Footer";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { DataProvider } from "./context/DataContext";
+import Layout from "./Components/Layout";
 
 function App() {
   return (
-    <div className="App">
-      <Header title="React JS Blog"/>
       <DataProvider>
-        <Navbar/>
-        <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/post" component={NewPost}/>
-          <Route path="/edit/:id" component={EditPost}/>
-          <Route path="/post/:id" component={PostsPage}/>
-
-          <Route path="/about" component={About} />
-          
-          <Route path="*" component={Missing}/>
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Layout/>}>
+            <Route index element={<Home/>}/>
+            <Route path="post">
+              <Route index element={<NewPost/>} />
+              <Route path=":id" element={<PostsPage/>} />
+            </Route>
+            <Route path="/edit/:id" element={<EditPost/>}/>
+            <Route path="about" element={<About/>} />
+            <Route path="*" element={<Missing/>}/>
+          </Route>
+        </Routes>
       </DataProvider>
-      <Footer/>
-    </div>
   );
 }
 

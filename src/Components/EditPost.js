@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams, Link, useHistory } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { format } from "date-fns";
 import api from "../api/posts";
 import DataContext from "../context/DataContext";
@@ -8,7 +8,7 @@ const EditPost = () => {
     const [editTitle, setEditTitle] = useState("");
     const [editBody, setEditBody] = useState("");
     const { posts, setPosts } = useContext(DataContext);
-    const history = useHistory();
+    const navigate = useNavigate();
     const { id } = useParams();
     const post = posts.find(post => (post.id).toString() === id); 
 
@@ -32,7 +32,7 @@ const EditPost = () => {
           setPosts(posts.map(post => post.id === id ? { ...response.data } : post)); //removing that old post & only adding the updated one/ post with the new info
           setEditTitle("");
           setEditBody("");
-          history.push("/");
+          navigate("/");
         } catch (err) {
           console.log(`Error: ${err.message}`);
         }

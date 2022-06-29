@@ -7,34 +7,16 @@
       "body": "An npm package used to fetch api data. I need to learn this ASAP!"
     },
     {
-      "id": 8,
-      "title": "Japan",
-      "datetime": "June 23, 2022 4:48:10 PM",
-      "body": "Japan is one of those countries I would like to visit when I get the opportunity to."
-    },
-    {
-      "id": 9,
-      "title": "Node JS or React Native?",
-      "datetime": "June 23, 2022 4:29:40 PM",
-      "body": "Am at a dilemma right now. As am finishing learning React, I know I'll solidify my knowledge through making tones of projects. However, as I do so, I would also like to be learning a new technology. Should I do Node (back-end) or React Native (mobile)? Hmmm..."
-    },
-    {
       "id": 10,
       "title": "JavaScript",
       "datetime": "June 26, 2022 10:13:09 AM",
       "body": "I love JavaScript. It's such an amazing programming language. I'm probably going to become a MERN stack developer."
     },
     {
-      "id": 11,
-      "title": "Interviews",
-      "datetime": "June 24, 2022 3:00:02 PM",
-      "body": "Interviews, am I right? I'm going for one right now. And am done, met some old workmates. I hope we get the parts."
-    },
-    {
       "id": 12,
       "title": "useContext",
-      "datetime": "June 27, 2022 6:12:14 AM",
-      "body": "useContext cleans up your app from all the prop drilling into components in through App. It puts all the \"data\"/ props into one file to be accessed throughout the application."
+      "datetime": "June 28, 2022 6:17:35 AM",
+      "body": "useContext cleans up your app. It puts all the \"data\"/ props into one file to be accessed throughout the application."
     }
   ]
 }

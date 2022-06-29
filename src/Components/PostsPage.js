@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { useParams, Link, useHistory } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import DataContext from "../context/DataContext";
 import api from "../api/posts";
 
 const Postspage = () => {
     const { posts, setPosts } = useContext(DataContext);
-    const history = useHistory();
+    const navigate = useNavigate();
     const { id } = useParams();
     const post = posts.find(thePost => (thePost.id).toString() === id);
     
@@ -14,7 +14,7 @@ const Postspage = () => {
           await api.delete(`/posts/${id}`);
           const postsList = posts.filter(post => post.id !== id);
           setPosts(postsList);
-          history.push("/");
+          navigate("/");
         } catch (err) {
           console.log(`Error: ${err.message}`);
         }

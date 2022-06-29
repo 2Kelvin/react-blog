@@ -3,7 +3,7 @@ const About = () => {
         <main className="About">
             <h2> About</h2>
             <p style={{ marginTop: "1rem" }}>
-                This blog app is a project I built while learning React JS.
+                This blog app project helped me learn more about: useState, useEffect, axios, react-router, useContext, creating custom  hooks and redux.
             </p>
         </main>
     );
